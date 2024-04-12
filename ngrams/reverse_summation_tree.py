@@ -33,9 +33,9 @@ class ReverseSummationTree:
     
     def add_to_tree_visualizer(self, tree, parent=""):
         if parent != "":
-            tree.create_node(self.key + " " + str(self.value), parent + self.key, parent=parent)
+            tree.create_node(repr(self.key) + " " + str(self.value), parent + self.key, parent=parent)
         else:
-            tree.create_node(self.key + " " + str(self.value), parent + self.key,)
+            tree.create_node(repr(self.key) + " " + str(self.value), parent + self.key,)
         for c in self.children.values():
             c.add_to_tree_visualizer(tree, parent=parent + self.key)
     
