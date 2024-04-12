@@ -31,6 +31,14 @@ class ReverseSummationTree:
             "children": [child.dump() for child in self.children.values()]
         }
     
+    def add_to_tree_visualizer(self, tree, parent=""):
+        if parent != "":
+            tree.create_node(self.key + " " + str(self.value), parent + self.key, parent=parent)
+        else:
+            tree.create_node(self.key + " " + str(self.value), parent + self.key,)
+        for c in self.children.values():
+            c.add_to_tree_visualizer(tree, parent=parent + self.key)
+    
     @staticmethod
     def load(data):
         children = {}
